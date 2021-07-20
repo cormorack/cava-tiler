@@ -11,9 +11,13 @@ with open('requirements.txt') as f:
 with open('requirements-dev.txt') as f:
     test_reqs = f.readlines()
 
+with open('deployment/requirements.txt') as f:
+    deploy_reqs = f.readlines()
+
 extra_reqs = {
     "test": test_reqs,
     "server": ["uvicorn[standard]>=0.12.0,<0.14.0"],
+    "deploy": deploy_reqs,
 }
 
 
