@@ -134,3 +134,6 @@ dmypy.json
 # Nodejs
 node_modules
 package-lock.json
+
+# AWS CDK
+cdk.out

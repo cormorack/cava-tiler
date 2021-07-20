@@ -48,7 +48,7 @@ class titilerLambdaStack(core.Stack):
             code=aws_lambda.Code.from_asset(
                 path=os.path.abspath(code_dir),
                 bundling=core.BundlingOptions(
-                    image=core.BundlingDockerImage.from_asset(
+                    image=core.DockerImage.from_build(
                         os.path.abspath(code_dir),
                         file="Dockerfile",
                     ),
@@ -59,7 +59,7 @@ class titilerLambdaStack(core.Stack):
                     ],
                 ),
             ),
-            handler="handler.handler",
+            handler="cava_tiler.handler.handler",
             memory_size=memory,
             reserved_concurrent_executions=concurrent,
             timeout=core.Duration.seconds(timeout),
