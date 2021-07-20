@@ -1,4 +1,4 @@
-name: Cava Metadata PR Build
+name: Cava Tiler PR Diff
 
 on:
   pull_request:
