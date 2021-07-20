@@ -25,7 +25,8 @@ def CustomPathParams(
         )
     else:
         purl = urlparse(url)
-        if purl.netloc != api_config.cogeo_source:
+        cogeo_bucket = api_config.cogeo_source.split('.')[0]
+        if cogeo_bucket not in purl.netloc:
             raise HTTPException(
                 status_code=403,
                 detail=f"URL Not Allowed: `{url}`",
