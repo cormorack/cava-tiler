@@ -1,0 +1,25 @@
+name: Cava Metadata PR Build
+
+on:
+  pull_request:
+env:
+  TITILER_STACK_STAGE: production
+  TITILER_STACK_NAME: titiler
+  TITILER_STACK_MEMORY: 6016
+  AWS_DEFAULT_REGION: us-west-2
+
+jobs:
+  cdk-check:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: cdk diff
+        uses: youyo/aws-cdk-github-actions@v2
+        with:
+          cdk_subcommand: 'diff'
+          actions_comment: true
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET }}
+          AWS_DEFAULT_REGION: ${{ env.AWS_DEFAULT_REGION }}
