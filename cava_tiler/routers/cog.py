@@ -1,6 +1,6 @@
 from rio_cogeo.cogeo import cog_info as rio_cogeo_info
 from rio_cogeo.models import Info
-from rio_tiler.io import COGReader
+from rio_tiler.io import Reader
 
 from titiler.core.factory import TilerFactory
 
@@ -10,9 +10,9 @@ from fastapi import Depends, Query
 
 
 cog = TilerFactory(
-    reader=COGReader,
+    reader=Reader,
     router_prefix="cog",
-    additional_dependency=MaskParams,
+    reader_dependency=MaskParams,
     path_dependency=CustomPathParams,
 )
 

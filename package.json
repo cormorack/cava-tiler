@@ -1,13 +1,13 @@
 {
-    "name": "cdk-deploy",
-    "version": "0.1.0",
-    "description": "Dependencies for CDK deployment",
-    "license": "MIT",
-    "private": true,
-    "dependencies": {
-      "aws-cdk": "1.114.0"
-    },
-    "scripts": {
-      "cdk": "cdk"
-    }
+  "name": "cdk-deploy",
+  "version": "1.0.0",
+  "description": "Dependencies for CDK deployment",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "aws-cdk": "1.114.0"
+  },
+  "scripts": {
+    "cdk": "cdk"
   }
+}

@@ -23,7 +23,7 @@ extra_reqs = {
 
 setup(
     name="cava-tiler",
-    version="0.1.0",
+    version="1.0.0",
     description=u"CAVA Tile Service",
     long_description=long_description,
     long_description_content_type="text/markdown",

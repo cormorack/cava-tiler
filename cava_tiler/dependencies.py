@@ -1,19 +1,24 @@
 import os
 from urllib.parse import urlparse
+from dataclasses import dataclass
 import requests
 from typing import Optional, Dict
 
 from cava_tiler.settings import api_config
+from titiler.core.dependencies import DefaultDependency
 from fastapi import HTTPException, Query
 
+@dataclass
+class MaskParams(DefaultDependency):
 
-def MaskParams(
     force_binary_mask: bool = Query(
         False, description="Whether to force binary mask."
-    ),
-) -> Optional[Dict]:
-    """Colormap Dependency."""
-    return {'force_binary_mask': force_binary_mask}
+    )
+
+    def __post_init__(self):
+        self.options = {'force_binary_mask': self.force_binary_mask}
+        # remove force_binary_mask after creation since it's not a valid kwarg
+        delattr(self, 'force_binary_mask')
 
 
 def CustomPathParams(
