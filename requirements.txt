@@ -1,6 +1,8 @@
-rio-cogeo>=2.2
-titiler.core
-brotli-asgi>=1.0.0
+rio-cogeo==3.5.0
+rio-tiler==4.1.5
+titiler.core==0.10.2
+brotli-asgi==1.2.0
 python-dotenv
-mangum>=0.10
+mangum==0.17.0
+jinja2
 requests
